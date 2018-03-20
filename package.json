@@ -1,0 +1,24 @@
+{
+  "name": "arc-app-example",
+  "version": "1.0.0",
+  "description": "An example Arc application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/altereagle/arc-app-example.git"
+  },
+  "keywords": [
+    "Arc",
+    "Example",
+    "App"
+  ],
+  "author": "Kendell Joseph",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/altereagle/arc-app-example/issues"
+  },
+  "homepage": "https://github.com/altereagle/arc-app-example#readme"
+}
