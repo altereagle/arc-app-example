@@ -1,4 +1,8 @@
-# arc-app-example
+# Arc App Example
+[![Build Status](https://travis-ci.org/altereagle/arc-app-example.svg?branch=master)](https://travis-ci.org/altereagle/arc-app-example)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6d55db826315077e802b/maintainability)](https://codeclimate.com/github/altereagle/arc-app-example/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6d55db826315077e802b/test_coverage)](https://codeclimate.com/github/altereagle/arc-app-example/test_coverage)
+
 An example application using Arc
 
 ### Install
@@ -17,27 +21,25 @@ module.exports = () => {
 > /example.js
 
 ```javascript
-// A developer can set Arc microservice config options
-const config = {
+// Load arc and the api extension
+const arc          = require(`arcms`);
+const apiExtension = require(`arc.extension-api`);
+
+// The application adds the API extension to Arc
+arc.addExtension(apiExtension, {
+  port: 8080
+});
+
+// The application configures and starts an example microservice
+arc({
   'Example': {
     protocol   : `example-protocol-name://`,
-    resource   : `arc.example`,
-    description: `This says Hello World`
+    resource   : `example`,
+    description: `This is a basic microservice example`
   }
-};
-
-// A developer can set API server options
-const apiOptions = {
-  port: 8080
-};
-
-// A developer can require the Arc library
-const arc = require(`arcms`);
-
-// A developer can start their Arc
-arc(config, apiOptions)
-  .then(() => {
-    console.log(`This Arc is online`.bold.cyan);
+})
+  .then(()=>{
+    console.log(`Arc Example Online`.bold.cyan);
   });
 
 // A developer can view the API at http://localhost:8080

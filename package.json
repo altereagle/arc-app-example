@@ -1,9 +1,10 @@
 {
   "name": "arc-app-example",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "An example Arc application",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/altereagle/arc-app-example/issues"
   },
-  "homepage": "https://github.com/altereagle/arc-app-example#readme"
+  "homepage": "https://github.com/altereagle/arc-app-example#readme",
+  "dependencies": {
+    "arc.extension-api": "^1.0.2",
+    "arcms": "^1.0.15",
+    "paperboy-communicator": "^1.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  }
 }
