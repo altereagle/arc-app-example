@@ -1,52 +1,65 @@
-# Arc App Example
+# Arc Example App
 [![Build Status](https://travis-ci.org/altereagle/arc-app-example.svg?branch=master)](https://travis-ci.org/altereagle/arc-app-example)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6d55db826315077e802b/maintainability)](https://codeclimate.com/github/altereagle/arc-app-example/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6d55db826315077e802b/test_coverage)](https://codeclimate.com/github/altereagle/arc-app-example/test_coverage)
 
-An example application using Arc
+* This app demonstrates how to create a *microservice*, and add functionality with an *extension* using **[Arc](https://www.npmjs.com/package/arcms)**.
 
 ### Install
-`npm install arc-app-example`
+```bash
+npm install arc-app-example
+```
 
-**Example:** Create a microservice
-> /microservice/arc.example/index.js
+### Microservice
+> /microservice/example/index.js
 
 ```javascript
 module.exports = () => {
   return `Hello, World!`;
 };
 ```
+* A micoservice at it's most basic is just a node module.
+* If you want to know more about microservices, check the Arc **[wiki](https://github.com/altereagle/arc/wiki)**.
 
-**Example:** Use the microservice with Arc
-> /example.js
+### Microservice Configuration
+> /microservice/example/config.js
 
 ```javascript
-// Load arc and the api extension
-const arc          = require(`arcms`);
-const apiExtension = require(`arc.extension-api`);
-
-// The application adds the API extension to Arc
-arc.addExtension(apiExtension, {
-  port: 8080
-});
-
-// The application configures and starts an example microservice
-arc({
+module.exports = {
   'Example': {
     protocol   : `example-protocol-name://`,
     resource   : `example`,
     description: `This is a basic microservice example`
   }
-})
+};
+```
+* A microservice configuration is an object that has properties used for configuartions
+* If you want to know about how to configure a microservice, check the Arc **[wiki](https://github.com/altereagle/arc/wiki)**.
+
+### The Application
+> /index.js
+
+```javascript
+const arc          = require(`arcms`);
+const apiExtension = require(`arc.extension-api`);
+const config       = require(`./microservice/example/config`);
+
+// Add the API extension to Arc and set the API extension to run on port 8080
+arc.addExtension(apiExtension, {
+  port: 8080
+});
+
+// Arc configures and starts an example microservice
+arc(config)
   .then(()=>{
     console.log(`Arc Example Online`.bold.cyan);
   });
-
-// A developer can view the API at http://localhost:8080
 ```
+* You can learn more about Arc extensions in the Arc **[wiki](https://github.com/altereagle/arc/wiki)**.
+* You can learn more about configuring microservices in the Arc **[wiki](https://github.com/altereagle/arc/wiki)**.
 
+### Run
 ```bash
 node example.js
 ```
-
----
+* View the API by visiting `http://localhost:8080`

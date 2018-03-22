@@ -1,11 +1,13 @@
 {
   "name": "arc-app-example",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An example Arc application",
   "main": "index.js",
   "scripts": {
+    "test": "node_modules/.bin/cucumber-js",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "coverage-test": "nyc --reporter=lcov --reporter=text-lcov cucumber-js -r features/",
+    "coverage-report": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,9 @@
     "paperboy-communicator": "^1.0.2"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "cucumber": "^4.0.0",
+    "mocha": "^5.0.4",
     "nodemon": "^1.17.2"
   }
 }
