@@ -2,10 +2,10 @@
   "name": "arc.app-example",
   "version": "1.0.0",
   "description": "An example Arc application",
-  "main": "index.js",
+  "main": "basic_example.js",
   "scripts": {
     "test": "node_modules/.bin/cucumber-js",
-    "start": "node index.js",
+    "start": "node basic_example.js",
     "coverage-test": "nyc --reporter=lcov --reporter=text-lcov cucumber-js -r features/",
     "coverage-report": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },

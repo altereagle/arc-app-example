@@ -51,15 +51,21 @@ arc.addExtension(apiExtension, {
 
 // Arc configures and starts an example microservice
 arc(config)
-  .then(()=>{
+  .then(() => {
     console.log(`Arc Example Online`.bold.cyan);
   });
 ```
 * You can learn more about Arc extensions in the Arc **[wiki](https://github.com/altereagle/arc/wiki)**.
 * You can learn more about configuring microservices in the Arc **[wiki](https://github.com/altereagle/arc/wiki)**.
 
+### Start Redis
+```bash
+sudo service redis-server start
+```
+
 ### Run
 ```bash
-node example.js
+npm start
 ```
+
 * View the API by visiting `http://localhost:8080`
