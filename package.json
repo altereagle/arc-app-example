@@ -1,6 +1,6 @@
 {
   "name": "arc.app-example",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "An example Arc application",
   "main": "basic_example.js",
   "scripts": {
@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/altereagle/arc.app-example#readme",
   "dependencies": {
-    "arc.extension-api": "^1.0.2",
-    "arcms": "^1.0.15",
+    "arc.extension-api": "^1.0.33",
+    "arcms": "^1.1.2",
     "paperboy-communicator": "^1.0.2"
   },
   "devDependencies": {
