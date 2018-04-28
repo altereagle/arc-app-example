@@ -1,13 +1,29 @@
-const arc          = require(`arcms`);
-const apiExtension = require(`arc.extension-api`);
-const manifest       = require(`./microservice/example/manifest`);
+// # Arc Example
+// This is a basic app created using Arc.
+// - This example has one microservice that simply returns "hello world"
+// - This example uses the [Arc Extension - API](https://www.npmjs.com/package/arc.extension-api)
+// - Run using: `node basic_example.js`
 
-// Add the API extension to Arc and set the API extension to run on port 8080
+// Load [Arc](https://www.npmjs.com/package/arcms) resources
+const arc          = require(`arcms`);
+
+// Load the [API extension]((https://www.npmjs.com/package/arc.extension-api) resources
+const apiExtension = require(`arc.extension-api`);
+
+// Define the [manifest](https://github.com/altereagle/arc/wiki/Microservice-Manifests) to use
+const manifest     = {
+  'Example': {
+    resource   : `example`,
+    description: `This is a very simple microservice example.`
+  }
+};
+
+// Add the API extension and set the port to 8080
 arc.addExtension(apiExtension, {
   port: 8080
 });
 
-// Arc configures and starts an example microservice
+// Configure and start the App
 arc(manifest)
   .then(() => {
     console.log(`Arc Example Online`.bold.cyan);

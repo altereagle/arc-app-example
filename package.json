@@ -1,13 +1,14 @@
 {
   "name": "arc.app-example",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "An example Arc application",
   "main": "basic_example.js",
   "scripts": {
     "test": "node_modules/.bin/cucumber-js",
     "start": "node basic_example.js",
     "coverage-test": "nyc --reporter=lcov --reporter=text-lcov cucumber-js -r features/",
-    "coverage-report": "nyc --reporter=lcov --reporter=text-lcov npm test"
+    "coverage-report": "nyc --reporter=lcov --reporter=text-lcov npm test",
+    "docs": "docco basic_example.js"
   },
   "repository": {
     "type": "git",
@@ -25,9 +26,9 @@
   },
   "homepage": "https://github.com/altereagle/arc.app-example#readme",
   "dependencies": {
-    "arc.extension-api": "^1.0.33",
-    "arcms": "^1.1.2",
-    "paperboy-communicator": "^1.0.2"
+    "arc.extension-api": "^1.1.0",
+    "arcms": "^1.2.2",
+    "paperboy-communicator": "^1.1.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
